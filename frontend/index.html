@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Loja de exemplo com análise de sentimento dos comentários de produtos.">
+    <title>Loja Sentimento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Atalhos de teclado (padrão e-MAG): Alt+1 conteúdo, Alt+2 menu, Alt+3 busca, Alt+4 rodapé -->
+    <nav class="skip-links" aria-label="Atalhos de acessibilidade">
+        <ul>
+            <li><a href="#conteudo">Ir para o conteúdo <kbd>1</kbd></a></li>
+            <li><a href="#menu">Ir para o menu <kbd>2</kbd></a></li>
+            <li><a href="#busca">Ir para a busca <kbd>3</kbd></a></li>
+            <li><a href="#rodape">Ir para o rodapé <kbd>4</kbd></a></li>
+        </ul>
+    </nav>
+
+    <!-- Barra de acessibilidade -->
+    <section class="a11y-bar" aria-label="Recursos de acessibilidade">
+        <div class="container a11y-bar__inner">
+            <span class="a11y-bar__title" id="a11y-title">Acessibilidade</span>
+            <div class="a11y-bar__controls" role="group" aria-labelledby="a11y-title">
+                <button type="button" class="a11y-btn" data-a11y="font-dec" aria-label="Diminuir tamanho da fonte">A−</button>
+                <button type="button" class="a11y-btn" data-a11y="font-reset" aria-label="Tamanho de fonte padrão">A</button>
+                <button type="button" class="a11y-btn" data-a11y="font-inc" aria-label="Aumentar tamanho da fonte">A+</button>
+                <button type="button" class="a11y-btn" data-a11y="contrast" aria-pressed="false">Alto contraste</button>
+                <button type="button" class="a11y-btn" data-a11y="readable" aria-pressed="false">Fonte legível</button>
+                <button type="button" class="a11y-btn" data-a11y="links" aria-pressed="false">Destacar links</button>
+                <button type="button" class="a11y-btn" data-a11y="motion" aria-pressed="false">Reduzir animações</button>
+                <button type="button" class="a11y-btn" data-a11y="spacing" aria-pressed="false">Espaçamento</button>
+                <button type="button" class="a11y-btn a11y-btn--ghost" data-a11y="reset">Redefinir</button>
+            </div>
+        </div>
+    </section>
+
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a href="#/" class="logo" aria-label="Loja Sentimento, página inicial">
+                <span class="logo__mark" aria-hidden="true">◆</span>
+                <span>Loja Sentimento</span>
+            </a>
+
+            <form class="search" role="search" id="busca" tabindex="-1" aria-label="Buscar produtos">
+                <label for="search-input" class="sr-only">Buscar produtos</label>
+                <input type="search" id="search-input" placeholder="Buscar produtos…" autocomplete="off">
+                <button type="submit" class="btn btn--primary">Buscar</button>
+            </form>
+
+            <button type="button" class="cart-btn" id="cart-btn" aria-label="Carrinho: 0 itens">
+                <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+                <span class="cart-btn__count" id="cart-count" aria-hidden="true">0</span>
+            </button>
+        </div>
+
+        <nav class="main-nav" id="menu" tabindex="-1" aria-label="Categorias">
+            <ul class="container main-nav__list">
+                <li><a href="#/" data-category="">Todos</a></li>
+                <li><a href="#/categoria/eletronicos" data-category="eletronicos">Eletrônicos</a></li>
+                <li><a href="#/categoria/casa" data-category="casa">Casa</a></li>
+                <li><a href="#/categoria/moda" data-category="moda">Moda</a></li>
+                <li><a href="#/categoria/esporte" data-category="esporte">Esporte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="conteudo" tabindex="-1">
+        <div class="container" id="view">
+            <!-- Conteúdo renderizado por index.js -->
+        </div>
+    </main>
+
+    <footer class="site-footer" id="rodape" tabindex="-1">
+        <div class="container site-footer__inner">
+            <p>Loja de exemplo — projeto de MLOps de análise de sentimento.</p>
+            <p class="api-status" id="api-status" role="status">
+                <span class="api-status__dot" aria-hidden="true"></span>
+                <span class="api-status__text">Verificando modelo de sentimento…</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Região para anúncios de leitores de tela -->
+    <div id="announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- VLibras: tradução para Língua Brasileira de Sinais -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+<!--
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        try { new window.VLibras.Widget('https://vlibras.gov.br/app'); } catch (e) { /* offline */ }
+    </script>
+-->
+    <script src="index.js"></script>
+</body>
+</html>
